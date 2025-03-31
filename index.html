@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lalit Kumar - Power Distribution Professional</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        /* Experience Section */
+        .experience {
+            background-color: #f8f9fa;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content h4 {
+            font-size: 16px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 0;
+        }
+        
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .achievement-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .achievement-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .achievement-icon {
+            font-size: 40px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        /* Innovations Section */
+        .innovations {
+            background-color: #f8f9fa;
+        }
+        
+        .innovations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .innovation-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        
+        .innovation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .innovation-image {
+            height: 200px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+        
+        .innovation-content {
+            padding: 20px;
+        }
+        
+        .innovation-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Education Section */
+        .education-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .education-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .education-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .education-item p {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .education-year {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: #f8f9fa;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            font-size: 24px;
+            color: var(--accent);
+            margin-right: 20px;
+            min-width: 24px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 15px;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">LK</a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#innovations">Innovations</a>
+                    <a href="#achievements">Achievements</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Lalit Kumar</h1>
+                <p>Senior Executive at TATA Power Delhi Distribution Limited<br>Power Distribution Professional with 11+ Years of Experience</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="./lalit.jpg" alt="Lalit Kumar">
+                </div>
+                <div class="about-text">
+                    <h3>Power Distribution Professional</h3>
+                    <p>I am Lalit Kumar, a dedicated power distribution professional with over 11 years of experience in the electrical power sector. Currently working as a Senior Executive at TATA Power Delhi Distribution Limited, a joint venture between TATA Power and Delhi Government.</p>
+                    <p>My expertise spans across network maintenance, fault rectification, system improvement, and quality management. I am passionate about innovation and have designed several solutions that have been standardized and implemented across the organization.</p>
+                    <p>With an MBA in Finance and a B.Tech degree, I combine technical expertise with business acumen to drive operational excellence and continuous improvement in power distribution systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Technical Assistant to District Manager</h3>
+                        <h4>TATA Power Delhi Distribution Limited</h4>
+                        <p>Oct 2023 - Present</p>
+                        <ul>
+                            <li>Monitoring KPIs including SAIDI, SAIFI, AT&C Losses</li>
+                            <li>Total Quality Management (TQM) samurai of district</li>
+                            <li>Safety Nodal Person ensuring adherence to safety guidelines</li>
+                            <li>Conducting review meetings and ensuring compliance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Zonal Revenue Disciplinary and Maintenance Officer</h3>
+                        <h4>TATA Power Delhi Distribution Limited</h4>
+                        <p>Oct 2022 - Oct 2023</p>
+                        <ul>
+                            <li>Network analysis and planning to mitigate load growth</li>
+                            <li>Execution of zonal techno commercial work</li>
+                            <li>Coordination with support groups for timely resolution</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Network Maintenance Officer</h3>
+                        <h4>TATA Power Delhi Distribution Limited</h4>
+                        <p>Oct 2015 - Oct 2022</p>
+                        <ul>
+                            <li>Ensuring adherence of annual Maintenance Plan</li>
+                            <li>Root cause analysis of interruptions</li>
+                            <li>Preparing and executing emergency schemes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Zonal Shift Officer</h3>
+                        <h4>TATA Power Delhi Distribution Limited</h4>
+                        <p>Jul 2013 - Oct 2015</p>
+                        <ul>
+                            <li>Attending HV/LV Breakdowns</li>
+                            <li>Ensuring fault rectification and supply restoration</li>
+                            <li>Following safety guidelines and protocols</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovations Section -->
+    <section id="innovations" class="section innovations">
+        <div class="container">
+            <h2 class="section-title">Innovations & Quality Initiatives</h2>
+            <div class="innovations-grid">
+                <div class="innovation-card">
+                    <div class="innovation-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="innovation-content">
+                        <h3>Anti-Bird Guard & Smart-O-Bus Bar</h3>
+                        <p>Designed and invented a new type of anti-bird guard and smart-o-bus bar. The project was rated 5 stars and standardized for regular implementation across the organization.</p>
+                    </div>
+                </div>
+                <div class="innovation-card">
+                    <div class="innovation-image">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="innovation-content">
+                        <h3>Single Pole G.O. Switch</h3>
+                        <p>Designed a first-of-its-kind Single Pole G.O. switch in the power sector. This project was rated 5 stars and standardized for regular implementation in the organization.</p>
+                    </div>
+                </div>
+                <div class="innovation-card">
+                    <div class="innovation-image">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="innovation-content">
+                        <h3>Theft Proof Distribution Box</h3>
+                        <p>Designed a theft-proof distribution box to curb electricity theft and reduce AT&C losses. This innovation helped reduce electricity theft and improve safety parameters.</p>
+                    </div>
+                </div>
+                <div class="innovation-card">
+                    <div class="innovation-image">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <div class="innovation-content">
+                        <h3>Extensible Cleat</h3>
+                        <p>Invented a new type of extensible cleat to prevent transformer failure due to oil leakage. This project was highly appreciated by senior management with standardization in progress.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <div class="container">
+            <h2 class="section-title">Awards & Achievements</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>International Recognition</h3>
+                    <p>Participated as team leader in the 47th International Convention on Quality Control Circle in Jakarta, Indonesia (2022) and won Silver Award.</p>
+                    <p>Participated in the 48th International Convention on Quality Control Circle organized by China Association for Quality (2023).</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>National Excellence</h3>
+                    <p>Won Par Excellence Award in the 36th National Convention Quality Control Circle in Aurangabad (2022).</p>
+                    <p>Won Par Excellence Award in the 35th National Convention on Quality Circle, hosted by Coimbatore Chapter (2021).</p>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Quality Leadership</h3>
+                    <p>Participated in T&D Cluster Q3 Best Delta Competition organized by TPC-Mumbai (2021) and won 1st position.</p>
+                    <p>Multiple Gold Awards in Chapter Convention in Quality Circle (CCQC) – Delhi Chapter in 2018 and 2020.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-list">
+                <div class="education-item">
+                    <h3>MBA in Finance</h3>
+                    <p>Guru Gobind Singh Indraprastha University, Dwarka</p>
+                    <span class="education-year">2021-2023</span>
+                </div>
+                <div class="education-item">
+                    <h3>B-Tech (Evening Batch)</h3>
+                    <p>Delhi Technological University (DTU)</p>
+                    <span class="education-year">2015-2019</span>
+                </div>
+                <div class="education-item">
+                    <h3>Diploma in Electrical Engineering</h3>
+                    <p>Guru Nanak Dev Polytechnic, Board of Technical Education Delhi</p>
+                    <span class="education-year">2010-2013</span>
+                </div>
+                <div class="education-item">
+                    <h3>12th (PCM)</h3>
+                    <p>G.B. Sr. Sec. School A-1 Block Janak Puri, CBSE</p>
+                    <span class="education-year">2010</span>
+                </div>
+                <div class="education-item">
+                    <h3>10th</h3>
+                    <p>G.B. Sr. Sec. School, Bindapur, CBSE</p>
+                    <span class="education-year">2008</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <ul class="contact-info">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>Lalit.kumar92591@gmail.com</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 9871222648</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>E-274/D, Street No. 73 Mahavir Enclave Part-3, Uttam Nagar New Delhi-110059</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-calendar"></i>
+                        <div>
+                            <h3>Date of Birth</h3>
+                            <p>1st June 1993</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2025 Lalit Kumar. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
